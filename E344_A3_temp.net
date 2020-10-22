@@ -1,0 +1,35 @@
+* C:\Users\toshe\OneDrive\Documents\University\3rd Year\Semester 2\EDesign\E344\Assignment3\E344_A3_temp.asc
+V1 Vtempsensor 0 PWL file=TempSensorPWL.csv
+V4 N002 0 9
+R_Sense 9V N002 0.010
+XU1 9V 0 5V LM7805
+R1 5V N001 100k
+R2 N001 0 100k
+XU2 N001 V_GND 5V 0 V_GND TL081
+XU3 N004 N003 5V 0 Vtempoutadc TLC2272
+R3 V_GND N003 100k
+R4 Vtempoutadc N003 3Meg
+R5 N004 Vtempsensor 200k
+C1 N004 0 300n
+R6 N004 5V 420k
+C2 9V 0 0.33µ
+C3 5V 0 0.1µ
+.tran 0 {transtop} 0 {timestep}
+.include A3tempcfg.txt
+* Don't change these -- used for auto-assessments.\nYou may modify input files while developing.\nFor submission: \n  * Use only 9V supply \n  * Connect "Vtempsensor" to your \n               conditioning circuit's input\n  * Connect "VtempoutADC" to your output signal.\n  * Only one label name per net.
+* Config file:
+* Analysis setup:
+* Battery
+* Sensor-\nemulating \nstimulus
+* =============================\nREPLACE WITH YOUR DETAILS\nE. Stewdent.,  00024601\nVtempsensor for 0degC = 500 mV\ndelta Vtempsensor = 10 mV/degC\n=============================
+* ==========================================================================================\nTemperature conditioning circuit (only copy and paste the given op-amps, or use those given in the working directory only)\n==========================================================================================
+* =============================\nVoltage regulation (complete this)\n=============================
+.incl TLC2272.LIB
+.incl TL081.LIB
+.incl LM78XX_RS.lib
+* Connect to your conditioning circuit's output
+* =============================\nIncludes (don't fiddle with this!!)\n=============================
+* =======================================\nYour circuit goes here, these are just placeholders.\n=======================================
+.lib LM78XX_RS.lib
+.backanno
+.end
